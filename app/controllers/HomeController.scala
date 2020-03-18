@@ -4,7 +4,7 @@ import authentication.AuthenticationAction
 import javax.inject._
 import play.api.mvc._
 
-@Singleton
+
 class HomeController @Inject()(cc: ControllerComponents, authAction: AuthenticationAction) extends AbstractController(cc) {
 
   def index: Action[AnyContent] = authAction {
@@ -12,6 +12,9 @@ class HomeController @Inject()(cc: ControllerComponents, authAction: Authenticat
   }
   def home()  = Action   {
     Ok(views.html.home("something"))
+  }
+  def subscribe()  = Action   {
+    Ok(views.html.subscribe("something"))
   }
 
 }
