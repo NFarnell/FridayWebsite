@@ -23,10 +23,10 @@ class ApplicationUsingJsonReadersWriters @Inject()(
 
   implicit def ec: ExecutionContext = components.executionContext
 
-  def collection: Future[JSONCollection] = database.map(_.collection[JSONCollection]("persons"))
+  def collection: Future[JSONCollection] = database.map(_.collection[JSONCollection]("peoples"))
 
   def create: Action[AnyContent] = Action.async {
-    val user = User(29, "John", "Smith", List(Feed("Slashdot news", "http://slashdot.org/slashdot.rdf")))
+    val user = User(29, "John", "Smith", List(Feed("Email", "JohnSmith@gmail.com")))
     val futureResult = collection.flatMap(_.insert.one(user))
     futureResult.map(_ => Ok("User inserted"))
   }
@@ -40,7 +40,7 @@ class ApplicationUsingJsonReadersWriters @Inject()(
 
   def findByName(lastName: String): Action[AnyContent] = Action.async {
     val cursor: Future[Cursor[User]] = collection.map {
-      _.find(Json.obj("lastName" -> lastName)).
+      _.find(Json.obj("lastName" -> "Smith")).
         sort(Json.obj("created" -> -1)).
         cursor[User]()
     }
@@ -56,6 +56,7 @@ class ApplicationUsingJsonReadersWriters @Inject()(
     futureUsersList.map { persons =>
       Ok(persons.toString)
     }
+
   }
   
 

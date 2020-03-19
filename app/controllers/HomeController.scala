@@ -16,5 +16,8 @@ class HomeController @Inject()(cc: ControllerComponents, authAction: Authenticat
   def subscribe()  = Action   {
     Ok(views.html.subscribe("something"))
   }
+  def myprofile()  = authAction   {
+    Ok(views.html.myprofile("something"))
+  }
 
 }

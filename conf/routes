@@ -3,6 +3,12 @@ GET         /                            controllers.HomeController.index
 GET         /home                        controllers.HomeController.home
 GET         /index                       controllers.HomeController.index
 
+GET         /signup                      controllers.SignUpController.signUp
+POST        /signup                      controllers.SignUpController.signUpSubmit
+
+GET         /create                      controllers.ApplicationUsingJsonReadersWriters.create
+POST        /create                      controllers.ApplicationUsingJsonReadersWriters.create
+
 GET         /login                       controllers.LoginController.login
 POST        /login                       controllers.LoginController.loginSubmit
 
@@ -10,10 +16,12 @@ GET         /createperson                controllers.ApplicationUsingJsonReaders
 
 POST        /createFromJson              controllers.ApplicationUsingJsonReadersWriters.createFromJson
 
-GET         /findByName/:lastName        controllers.ApplicationUsingJsonReadersWriters.findByName(lastName: String)
+GET         /myprofile             controllers.HomeController.myprofile
+GET         /myprofile/:lastName        controllers.ApplicationUsingJsonReadersWriters.findByName(lastName: String)
 
 GET         /assets/*file                controllers.Assets.at(path="/public", file)
 
 GET         /assets/*file               controllers.Assets.at(path="/public", file)
 
 GET         /subscribe                  controllers.HomeController.subscribe
+

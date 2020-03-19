@@ -3,11 +3,14 @@ package models
 import play.api.data.Form
 import play.api.data.Forms._
 
+import scala.collection.mutable.ListBuffer
+
 case class LoginDetails(username: String, password: String)
 
 object LoginDetails {
 
-  val userList: List[LoginDetails] = List(LoginDetails("admin", "password"))
+  var userList = new ListBuffer[LoginDetails]
+  userList += LoginDetails("admin","password")
 
   val loginForm: Form[LoginDetails] = Form(
     mapping(

@@ -27,7 +27,7 @@
                     <a class="nav-link" href="subscribe">Subscription</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="login">MyProfile</a>
+                    <a class="nav-link" href="myprofile">MyProfile</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -43,20 +43,20 @@
     <span class="border-left"></span>
 
     @helper.form(routes.LoginController.loginSubmit()){
-    <div class="container">
-        <div class="row">
+    <div class="container ">
+        <div class="row bg-dark">
             <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
-                <div class="row">
+                <div class="row bg-dark">
                     <div class="col-lg-6 col-md-8 mx-auto">
 
                             <!-- form card login -->
                         <div class="card rounded shadow shadow-sm">
                             <div class="card-header">
-                                <h3 class="mb-0">Login</h3>
+                                <h3 class="mb-0 text-center">Login</h3>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body ">
                                 <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
-                                    <div class="form-group">
+                                    <div class="form-group ">
                                         <label for="uname1"></label>
                                         @helper.inputText(form("username"), '_label -> "Login", '_showConstraints -> false)
                                         <div class="invalid-feedback">Oops, you missed this one.</div>
